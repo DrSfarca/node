@@ -1,10 +1,10 @@
-// Every file is a module
-// Modules - Encapsulated Code  (only share minimum)
-const names = require("./4-names");
-const sayHi = require("./5-utils");
-const data = require("./6-alternative-flavour");
-require("./7-mind-grenade");
+const { readFileSync, writeFileSync } = require("fs");
 
-sayHi("susan");
-sayHi(names.john);
-sayHi(names.peter);
+const first = readFileSync("./content/first.txt", "utf8");
+const second = readFileSync("./content/second.txt", "utf8");
+console.log(first, second);
+
+writeFileSync(
+  "./content/result-sync.txt",
+  `Here is the result: ${first}, ${second}`
+);
