@@ -1,10 +1,6 @@
-const { readFileSync, writeFileSync } = require("fs");
+const _ = require("lodash");
 
-const first = readFileSync("./content/first.txt", "utf8");
-const second = readFileSync("./content/second.txt", "utf8");
-console.log(first, second);
+const items = [1, [2, [3, [4]]]];
 
-writeFileSync(
-  "./content/result-sync.txt",
-  `Here is the result: ${first}, ${second}`
-);
+const newItems = _.flattenDeep(items);
+console.log(newItems);
